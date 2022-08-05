@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>:visible & :hidden Selector</title>
+	<style type="text/css">
+		body{
+           height: 100vh;
+
+           display: flex;
+           justify-content: center;
+           align-items: center;
+		}
+
+		.container{
+			width: 500px;
+		}
+	</style>
+</head>
+<body>
+	
+
+   <div class="container">
+   	
+   	<h1>My Fav Colors</h1>
+
+   	<ul>
+   		<li>Red</li>
+   		<li>Green</li>
+   		<li>Blue</li>
+   		<li></li>
+   		<li>Pink</li>
+   		<li>White</li>
+   		<li></li>
+   		<li>Violet</li>
+   	</ul>
+
+   	<hr/>
+
+   		<ol>
+   		<li style="display: none;">Apple</li>
+   		<li hidden>Orange</li>
+   		<li></li>
+   		<li></li>
+   		<li style="opacity: 0;">Mango</li>  <!-- bar ma myin ya mar ma hoke bu -->
+   		<li></li>
+   		<li></li>
+   		<li style="visibility: hidden;">Peach</li>  <!-- thu lal tu tu bal -->
+   	</ol>
+
+   
+   </div>
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// console.log('hi');
+
+			  // :visible
+			 // $('ul').css("background-color","steelblue");
+			 // $("ul li:visible").css("background-color","steelblue");
+
+
+			  // $("ol li:visible").css("background-color","steelblue");
+
+			  // :hidden
+			  $("ol li:hidden").show();
+
+
+            
+
+
+		});
+
+			</script>
+</body>
+</html>

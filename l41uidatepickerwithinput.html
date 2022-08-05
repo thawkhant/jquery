@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UI datepickerwithinput Method</title>
+	<link href="./libs/jquery-ui-1.13.1/jquery-ui-1.13.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container{
+			width: 900px;
+			background: #f4f4f4;
+			padding: 20px;
+		}
+
+		.form-group{
+			margin: 10px 0;
+		}
+
+		.form-group label{
+			display: block;
+			font-size: 20px;
+			margin-bottom: 20px;
+		}
+
+		.form-control{
+			width: 100%;
+			font-size: 20px;
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<form action="" method="">
+			
+			<div class="form-group">
+				<label for="arrival">Arrival Date :</label>
+				<input type="text" name="arrival" id="arrival" class="form-control" readonly >
+			</div>
+
+			<div class="form-group">
+				<label for="bookingstart">Booking Start Date :</label>
+				<input type="text" name="bookingstart" id="bookingstart" class="form-control" readonly>
+			</div>
+
+			<div class="form-group">
+				<label for="bookingend">Booking End Date :</label>
+				<input type="text" name="bookingend" id="bookingend" class="form-control" readonly>
+			</div>
+		</form>
+	</div>
+	
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script src="./libs/jquery-ui-1.13.1/jquery-ui-1.13.1/jquery-ui.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// console.log('hi')
+
+			$("#arrival").datepicker({
+				 numberOfMonths:2,
+				//numberOfMonths:[2,4]
+                  showAnim:"slide",
+                  // showAnim:"slideDown"
+
+                  // duration:2000
+                  duration:'slow',
+
+                  dayNamesMin:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+
+                 // changeMonth:true,    //to get month whatever you want
+                //  changeYear:true
+
+              //  minDate:0,      //start from today , today is index number 0  //use in booking sir
+              //  maxDate:5
+
+              minDate:'07/02/2022',  // we have to obey the format of default
+              maxDate:'08/05/2022'
+			});
+			$("#bookingstart").datepicker({
+				numberOfMonths:2,
+				showAnim:"slideDown",
+				dateFormat:"dd-mm-yy",
+                
+                onClose:function(selectdate){
+                    $("#bookingend").datepicker("option","minDate",selectdate);  //booking end ka kyi yan a myar sone yway lot ya dar ka min pyint ya ml  //"option" is taken because we need one object cuz parameter dont dont like {}
+                }
+
+			});
+
+			$("#bookingend").datepicker({
+				numberOfMonths:2,
+				showAnim:"slide",
+				dateFormat:"dd-mm-yy",
+
+
+                onClose:function(selectdate){
+                	$("#bookingstart").datepicker("option","maxDate",selectdate);
+                }
+			});
+
+		})
+	</script>
+</body>
+</html>

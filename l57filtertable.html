@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Filter Table</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+
+		body{
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container{
+			width: 700px;
+
+		}
+
+		.form-control{
+			width: 100%;
+			font-size: 16px;
+			border: 1px solid #ddd;
+			padding: 12px 20px 12px 50px;
+			margin-bottom: 15px;
+		}
+
+		.form-control:focus{
+			outline: none;
+		}
+
+		#datatable{
+			width: 100%;
+			border: 1px solid #ddd;
+			border-collapse: collapse;
+		}
+		#datatable .header,#datatable tr:hover{
+           background: #f4f4f4;
+		}
+
+		#datatable tr{
+			border-bottom: 1px solid #ccc;
+		}
+
+		#datatable th, #datatable td{
+			text-align: left;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h2>Customers List</h2>
+
+		<input type="text" name="search" id="search" class="form-control" placeholder="Search for something...."/>
+	
+
+	<table id="datatable">
+		<thead class="header">
+			<th style="width: 60%;">Name</th>
+			<th style="width: 10%;">Age</th>
+			<th style="width: 30%;">City</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Aung Aung</td>
+				<td>20</td>
+				<td>Yangon</td>
+			</tr>
+			<tr>
+				<td>Maung Maung</td>
+				<td>25</td>
+				<td>Mandalay</td>
+			</tr>
+			<tr>
+				<td>Su Su</td>
+				<td>20</td>
+				<td>Bago</td>
+			</tr>
+			<tr>
+				<td>Hla Hla</td>
+				<td>30</td>
+				<td>Mawlamyine</td>
+			</tr>
+			<tr>
+				<td>Mya Mya</td>
+				<td>21</td>
+				<td>Yangon</td>
+			</tr>
+			<tr>
+				<td>Yu Yu</td>
+				<td>31</td>
+				<td>Yangon</td>
+			</tr>
+			<tr>
+				<td>Kyaw Kyaw</td>
+				<td>25</td>
+				<td>Mandalay</td>
+			</tr>
+			<tr>
+				<td>Zaw Zaw</td>
+				<td>18</td>
+				<td>Mandalay</td>
+			</tr>
+			<tr>
+				<td>Zin Zin</td>
+				<td>16</td>
+				<td>Bago</td>
+			</tr>
+			<tr>
+				<td>Yin Yin</td>
+				<td>18</td>
+				<td>Mawlamyine</td>
+			</tr>
+		</tbody>
+	</table>
+
+	</div>
+	
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// console.log("hi");
+
+			$("#search").keyup(function(){
+			 	// console.log("hooooo");
+
+			 	var getinput = $(this).val().toLowerCase();
+			 	// console.log(getinput);
+
+
+			 	// 1. filter for all columns 
+			 //	$("#datatable tr").filter(function(){
+
+			 		// $(this); *** important that is error they are not same take care
+
+			 		// console.log($("#datatable tr"));
+			 		// console.log($(this))
+
+			 		// console.log($(this).text());
+			 		// console.log($(this).text().toLowerCase().indexOf(getinput));
+
+			 		// $(this).toggle($(this).text().toLowerCase().indexOf(getinput) > -1);
+
+
+			 	// });
+
+
+			 	// // 2. fliter forall columb 
+			 	// $("#datatable tr").filter(function(){
+
+			 	// 	if($(this).text().toLowerCase().indexOf(getinput) > -1 ){
+     //                	$(this).show()
+			 	// 	}else{
+			 	// 		$(this).hide();
+			 	// 	}
+			 	// })
+
+
+			 	// 3. fliter forall columb 
+			 //	$("#datatable tr").filter(function(){
+
+			 		//if($(this).text().toLowerCase().indexOf(getinput) > -1 ){
+                    //	$(this).css({
+                    		// display:""     //you can't use inline / block /inline block/ flex  //this way is the best pr
+                    //		display:"table-row"  // table row ma pyint aung lot
+                    //	})
+			 	//	}else{
+			 		//	$(this).css({
+			 			//	display:"none"
+			 			//});
+			 		//}
+			 	//})
+
+
+			 	// 4.filter for first column (firstway)
+
+			 	//$("#datatable tr").filter(function(){
+			 		// $(this).toggle($(this).children(":first").text().toLowerCase().indexOf(getinput) > -1);
+			 		// $(this).toggle($(this).children(":last").text().toLowerCase().indexOf(getinput) > -1)
+			 	//})
+
+			 	// 5.filter for first column (secondway)
+                 // $("#datatable tr").filter(function(){
+			 	  // $(this).toggle($(this).children().eq(0).text().toLowerCase().indexOf(getinput) > -1);
+			 	   // $(this).toggle($(this).children().eq(1).text().toLowerCase().indexOf(getinput) > -1);
+			 	   // $(this).toggle($(this).children().eq(2).text().toLowerCase().indexOf(getinput) > -1);
+
+			 	  // })
+
+			 	  // 6.filter for first column (thirdway)
+                   // $("#datatable tr").filter(function(){
+			 	   // // $(this).toggle($(this).children(":eq(1)").text().toLowerCase().indexOf(getinput) > -1);
+			 	   //  $(this).toggle($(this).children(":eq(2)").text().toLowerCase().indexOf(getinput) > -1);
+			 	   
+               // })
+
+               	// 7. fliter for first columb 
+			 	$("#datatable tr").filter(function(){
+
+			 		if($(this).children(":eq(0)").text().toLowerCase().indexOf(getinput) > -1 ){
+                    	$(this).css({
+                    		display:""     //you can't use inline / block /inline block/ flex  //this way is the best pr
+                    		// display:"table-row"  // table row ma pyint aung lot
+                    	})
+			 		}else{
+			 			$(this).css({
+			 				display:"none"
+			 			});
+			 		}
+			 	})
+
+
+
+
+
+
+
+
+
+			})
+		})
+	</script>
+</body>
+</html>

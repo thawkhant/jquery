@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Click and Bind Event</title>
+</head>
+<body>
+
+	<h1>Welcome to jQuery</h1>
+
+	<h3>This is awesome js library</h3>
+
+	<button type="button" id="clickme" class="clickme">Click Me</button>
+
+	<button type="button" id="singleclick">Single Click</button>
+
+	<button type="button" id="doubleclick">Double Click</button>
+	
+
+    <script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		
+   console.log('hay');
+
+   $(document).ready(function(){
+        
+
+        // $('#clickme');
+        // $('.clickme');
+        // $('h1');
+
+                       //parameter2ku click ka yoyo click kout mal so yin
+        $('#clickme').click('click',function(){
+              console.log('i am working by click')
+        });
+
+        $('#singleclick').bind('click',function(){
+        	console.log('i am working by single click')
+        })
+
+        $('#doubleclick').bind('dblclick',function(){
+        	//console.log('i am double click');
+
+        	console.log('i am double click'+ this.nodeName);
+        })
+
+
+
+
+
+
+
+
+   });
+		
+	</script>
+</body>
+</html>

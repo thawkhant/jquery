@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Three View</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style type="text/css">
+
+		body{
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.container{
+            width: 700px;
+
+		}
+
+		.browserpannel{
+		     border: 3px solid #f4f4f4;	
+		     border-top-left-radius: 5px;
+		     border-top-right-radius: 5px;
+		}
+
+		.tabbar{
+			padding: 10px;
+			background: #f1f1f1;
+			border-top-left-radius: 4px;
+		    border-top-right-radius: 4px;
+		}
+
+		.dot{
+			display:inline-block;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background: #bbb;
+		}
+
+		.content{
+			padding: 20px;
+		}
+
+		ul{
+			list-style: none;
+		}
+
+		.bigcap{
+			cursor: pointer;
+		}
+
+		.bigcap::before{
+			content: "\25B6";
+			font-family: "Font Awesome 5 Free";
+			color: black;
+			margin-right: 6px;
+			display: inline-block;
+		}
+
+		.bigcap.godown::before{         /*bigcap htal mar go down par lar yin lote mot par*/
+			transform: rotate(90deg);
+		}
+
+		.nested{
+			display: none;
+		}
+
+		.active{
+			display:block;
+		}
+
+
+
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		
+		<div class="browserpannel">
+			<div class="tabbar">
+                 <span class="dot"></span>
+                 <span class="dot"></span>
+                 <span class="dot"></span>
+			</div>
+			<div class="content">
+				
+
+				<h3>Ms.July</h3>
+				<p>Cheif Technology Officer</p>
+
+				<ul>
+					<li><span class="bigcap godown">Summary Bio</span>  <!-- godown nae active ka phway cha htar dar -->
+
+						<ul class="nested active">
+							<li>Age : 35</li>
+							<li>Marital Status : Married</li>
+							<li>Nationality : Japanes</li>
+						</ul>						
+					</li>
+				</ul>
+
+				<ul>
+							<li>
+								<span class="bigcap">Working Experiences</span>
+								<ul class="nested">
+									<li>
+										<span class="bigcap">2020</span>
+										<ul class="nested">
+											<li>2020 - Project Director at SUDO Technology Co.,Ltd</li>
+											<li>2018 - Project Director at BARBU Technology Co.,Ltd</li>
+											<li>
+												<span class="bigcap">2015</span>
+												<ul class="nested">
+													<li>2013 - Project Director at YUKI Technology Co.,Ltd</li>
+											        <li>2010 - Project Director at MULIE Technology Co.,Ltd</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+			</div>
+		</div>
+	</div>
+	
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			// console.log("hi")
+
+			$(".bigcap").click(function(){
+
+				$(this).toggleClass("godown");
+				$(this).siblings().toggleClass("active");
+			})
+		})
+	</script>
+</body>
+</html>

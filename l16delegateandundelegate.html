@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>delegate and undelegate</title>
+</head>
+<body>
+
+	<h1>Hello Myanmar</h1>
+
+	<h2>Hello Thailand</h2>
+
+	<h1>Hello China</h1>
+
+	<button type="button" id="dlgbtn">delegate</button>
+
+	<button type="button" id="undlgbtn">undelegate</button>
+
+	<button type="button" id="hibtn">hi</button>
+
+		<button type="button" id="zoombtn">Zoom</button>
+
+		<hr/>
+
+		<div class="container">
+			<h3>Hello Indonesia</h3>
+			<button type="button" id="dlgmebtn">Delegate Me</button>
+			<button type="button" id="undlgmebtn">Undelegate Me</button>
+		</div>
+	
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			//console.log("hihi");
+
+			// $(parent element).delegate(selector,event,function);
+
+			$("body").delegate("#dlgbtn","click",function(){         //body ka pone tay ma hoke bu parent ko pay ya dar paw naw
+				 $("h1").after("<p>Thanks for delegate Me</p>");
+				// $("h1").before("<p>Thanks for delegate Me</p>");
+
+				// $("h1").prepend("<p>Thanks for delegate Me</p>");
+				// $("h1").append("<p>Thanks for delegate Me</p>");
+			})
+
+
+			// undelegate();
+
+			$("#undlgbtn").click(function(){
+				// $("body").undelegate();
+
+				 $("body").undelegate("click");
+			});
+
+			$("#hibtn").click(function(){
+				console.log("hi");
+			});
+
+            var x = 0;
+			$("#zoombtn").click(function(e){
+				$("h2").css({fontSize : "+=10px"});  // append += ka ti be thar naw,a kout dine mar 10 se toe lar dal
+
+				$("#zoombtn").text("Zoom" + (x+1));
+				x++;
+
+				if(x === 3){
+
+					$("body").undelegate(e);     // a pow mar delegate nae ma phan htar lottt 'e' nae pyn phan dar 
+				}
+			});
+
+
+			$("div").delegate("#dlgmebtn","click",function(){
+				$("h3").after("<p>Thanks for meleget me again</p>")
+			});
+
+			$("#undlgmebtn").click(function(){
+				$(".container").undelegate("click");
+			})
+
+		
+
+
+		})
+	</script>
+</body>
+</html>
+
+<!-- e = button --> <!-- All Obj
+
+this = e.target --> <!-- --> 

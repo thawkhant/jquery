@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>attr and removeattr Method</title>
+	<style type="text/css">
+		
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container{
+			width: 800px;
+			background: #f4f4f4;
+			padding: 20px;
+		}
+
+		.text-primary{
+			color: blue;
+		}
+
+		.bg-info{
+			background:lightskyblue;
+		}
+
+		.text-light{
+			color:#fff;
+		}
+
+
+		.text-center{
+			text-align: center;
+		}
+
+		.underline{
+			text-decoration: underline;
+		}
+
+
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+	<div>
+		<img src="logo1.webp" alt="logo1.png" width="100">
+		<h1 id="1">Hello Myanmar</h1>
+		<h1 id="2">Hello Thailand</h1>
+		<h1 id="3">Hello China</h1>
+		<h1 id="4">Hello Singapore</h1>
+	</div>
+	<button type="button1" id="txtpri">text-primary</button>
+	<button type="button1" id="bginfo">bg-info</button>
+	<button type="button1" id="txbg" >texlight-bginfo</button>
+	
+	<button type="button1" id="multibtn">Multi-attr</button>
+	<button type="buton" id="rmattr">remove Attr</button>
+	<button type="buton" id="hasclass">Has Class</button>
+
+	<button type="button" id="textcnt">Text-center</button>
+	<button type="button" id="rmclass">remove textlight</button>
+	<button type="button" id="togclass">toggle class</button>
+
+</div>
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			// console.log("hi")
+
+
+             // $(selector).attr(attrubute,value);  yae htone
+
+			$("#txtpri").click(function(){
+				$("h1").attr("class","text-primary")
+			})
+
+			$("#bginfo").click(function(){
+				$("h1").attr("class","bg-info")
+			})
+
+			$("#txbg").click(function(){
+				$("h1").attr("class","bg-info text-light")
+			})
+
+			$("#multibtn").click(function(){
+
+				$("img").attr({
+					alt : 'logo2',
+					width : "200px",
+					src : "logo2.png",
+					title : "this is title",
+					abc : "this is logo image sir"
+				})
+			})
+
+			// // removeAttr()
+			// $("#rmattr").click(function(){
+			// 	$("h1").removeAttr("class");
+			// })
+
+
+			$("#rmattr").click(function(){
+				$("h1").removeAttr("id class");
+			})
+
+			//________________________________________________
+           
+           // class()
+            // $(selector).addClss
+
+			$("#textcnt").click(function(){
+               //$("h1").addClass('text-center')
+
+               $("h1").addClass("text-center underline")
+			})
+
+			// removeClass
+			$("#rmclass").click(function(){
+				$("h1").removeClass("text-light");
+			})
+
+			// hasClass()
+			$("#hasclass").click(function(){
+				window.alert($("h1").hasClass("text-center"));
+			})
+
+			//toggleClass()
+			$("#togclass").click(function(){
+				$("h1").toggleClass("text-center");
+			})
+
+		})
+
+
+
+	</script>
+</body>
+</html>
+
+
+<!-- 
+text-light ka mar nay dal -->

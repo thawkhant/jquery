@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data andremoveData method</title>
+	<style type="text/css">
+		
+     body{
+     	height: 100vh;
+     	display: flex;
+     	justify-content: center;
+     	align-items: center;
+     }
+
+     .container{
+     	width: 900px;
+     	background: #f4f4f4;
+     	padding: 20px;
+     }
+
+
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		
+		<div>
+			<h4>Student Data</h4>
+		</div>
+
+		<ul>
+			<li>Name : <span data-name="Mr.June">???</span></li>
+			<li>Age : <span data-age="20">???</span></li>        <!--  use "" cuzz its just attribute pr sir -->
+			<li>Phone : <span data-phone-number="09123456789">???</span></li>
+		</ul>
+
+		<div>
+			<button type="button" class="newcaption-btn">New Caption</button>
+			<button type="button" class="remcaption-btn">Remove Caption</button>
+			<button type="button" class="showinfo-btn">Show Info</button>
+			<button type="button" class="attrid-btn" data-id="123456">Attribute ID</button>
+			<button type="button" class="dataid-btn" data-id='654321'>Data ID</button>
+			<button type="button" class="obj-btn">Object</button>
+			<button type="button" class="inc-btn" data-id="1">Increase ID</button>
+		</div>
+	</div>
+	
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//console.log("hello")
+
+			$(".newcaption-btn").click(function(){
+
+				var setnewcap = $("div").data("newcaption","Customer Info");    // div ka you chin lal ya dal ma you chin lal ya dal
+				var getnewcap = $("div").data("newcaption");   // pyan yu thone like dar
+				// console.log(getnewcap);
+
+				$("h4").text(getnewcap);
+			});
+
+
+			$(".remcaption-btn").click(function(){
+				console.log("Before removeData = ",$("div").data("newcaption"));
+
+				$("div").removeData('newcaption');
+				console.log("After removeData = ",$("div").data("newcaption"));
+			});
+
+			$(".showinfo-btn").click(function(){
+				
+                 // $("ul li:first span").text("Ko Kyaw");            with attr pr sir
+                // console.ldog($(ul li:first span).attr(name))
+
+				var getname = $("ul li:first span").data("name");
+				var getage = $("ul li:nth-child(2) span").data("age");
+				var getphone = $("ul li:last span").data("phone-number");
+
+
+				console.log(getname,getage,getphone);
+				console.log(typeof getname,typeof getage,typeof getphone);
+
+				$("ul li:first span").text(getname);
+				$("ul li:nth-child(2) span").text(getage);
+				$("ul li:last span").text(getphone);
+			})
+
+			$(".attrid-btn").click(function(){
+                 var getattrid = $(this).attr("data-id");
+                 console.log(getattrid, typeof getattrid);
+			});
+
+			$(".dataid-btn").click(function(){
+				var getdataid = $(this).data("id");
+				console.log(getdataid,typeof getdataid);  // will return the number 654321 by number from attribute
+                
+
+			      $(this).data("id","543216");
+				getdataid = $(this).data("id");
+				console.log(getdataid, typeof getdataid); // will returen the string 543216 by string from overwrite
+			});
+
+
+			$(".obj-btn").click(function(){
+
+				$("div").data("info",{
+					objname : "Ms.July",
+					objage:35,
+					objphone : "09123456789"
+				});
+
+
+				$("ul li span:eq(0)").text($("div").data("info").objname);
+				$("ul li span:eq(1)").text($("div").data("info").objage);
+				$("ul li span:eq(2)").text($("div").data("info").objphone);
+			});
+
+
+			$(".inc-btn").click(function(){
+				// var getidmethod1 = $(this).data("id");
+				// console.log(getidmethod1);
+
+
+				//var getidmethod2 = $(this).data().id; //Actually that not object  // obj thar so ...... twe site twar mal
+				// vconsole.log(getidmethod2);
+
+				// var getidmethod3 = $(this).data()["id"];
+				// console.log(getidmethod3);
+
+
+				// var incidmethod1 = $(this).data("id");
+				// console.log(incidmethod1);
+				// incidmethod1 ++;
+				// $(this).data("id",incidmethod1);
+
+				// var incidmethod1 = $(this).data("id");
+				// console.log(incidmethod1);
+				// incidmethod1 += 1;                 // variable bl toe tay dl
+				// $(this).data("id",incidmethod1);   // overwrite pyan loke pay ya dal 
+
+
+				// var incidmethod2 = $(this).data().id++;   // po smooth pyint dal
+				// console.log(incidmethod2);
+
+				// var incidmethod3 = $(this).data()["id"]++;
+				// console.log(incidmethod3);
+
+				// var incidmethod3 = $(this).data()["id"]++;
+				//  console.log(incidmethod3);
+				//  incidmethod3++;
+				//  $(this).data('id',incidmethod3);
+
+
+				var incidmethod3 = $(this).data()["id"]++;
+				 console.log(incidmethod3);
+				 incidmethod3 += 1;
+				 $(this).data('id',incidmethod3);
+			});
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UI button Method</title>
+	<link href="./libs/jquery-ui-1.13.1/jquery-ui-1.13.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container{
+			width: 900px;
+			background: #f4f4f4;
+			padding: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1>Widget</h1>
+
+		<button type="button" id="btn1">This is button</button>
+		<input type="submit" name="submit" id="btn2" value="This is submit button" />
+		<a href="#" id="btn3">This is an anchor</a>
+
+        <br/><br/>
+
+		<div id="btn4">
+			<input type="checkbox" name="position" id="chk1" class="" value="1"><label for="chk1">Left</label> 
+			<input type="checkbox" name="position" id="chk2" class="" value="2"><label for="chk2">Center</label> 
+			<input type="checkbox" name="position" id="chk3" class="" value="3"><label for="chk3">Left</label>
+		</div>
+
+	
+
+		<div id="btn5">
+			<fieldset>
+				<legend><i>Select your fav color</i></legend>
+			<input type="radio" name="favcolor" id="favwhi" class="" value="1"><label for="favwhi">White</label> 
+			<input type="radio" name="favcolor" id="favdak" class="" value="2"><label for="favdak">Black</label> 
+			<input type="radio" name="favcolor" id="favred" value="" value="3"><label for="favred">Red</label>
+			</fieldset>
+		</div>
+
+		<br/><br/>
+
+		<button type="button" id="btn6">Button</button>
+
+		 <button type="button" id="btn7">Button</button>
+        <br/><br/>
+
+        <button type="button" id="btn8">Button Disabled</button>
+	</div>
+	
+
+    <script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script src="./libs/jquery-ui-1.13.1/jquery-ui-1.13.1/jquery-ui.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// console.log("hi")
+
+			$("#btn1,#btn2,#btn3").button();
+             
+             // for position
+			$("#btn4").buttonset();   //for radio doe check box doe a twint so buttonset pay thint dal
+            
+            // for color
+			$("#btn5").buttonset();
+
+			$("#btn6").button({
+				icons:{
+					primary:"ui-icon-heart"
+				},
+				 // text:false
+                showLabel:false
+			});
+
+			
+    $("#btn7").button({
+        icons:{
+            primary:"ui-icon-trash"
+        },
+        label:"Click Me",
+        // iconPosition:"start",
+        iconPosition:"end"
+        // iconPosition:"top",
+        // iconPosition:"bottom",
+    });
+
+    $('#btn8').button({
+        disabled:true
+    });
+
+		})
+	</script>
+</body>
+</html>

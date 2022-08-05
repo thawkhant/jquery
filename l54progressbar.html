@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Progress Bar</title>
+	<style type="text/css">
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container{
+			width: 500px;
+			background: #f4f4f4;
+			padding: 10px;
+		}
+
+		.progress{
+			width: 100%;
+			background: #ddd;
+			margin:20px 0 ;
+		}
+
+		.progress-bar{
+			width: 0;
+			height: 20px;
+			background:green;
+			color: #fff;
+			text-align: center;
+			line-height: 20px;
+		}
+
+		.justify-content-end{
+			display: flex;
+			justify-content: end;
+		}
+		
+
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h3>Downloader</h3>
+
+		<div class="progress">
+			<div class="progress-bar">50%</div>
+		</div>
+
+		<div class="justify-content-end">
+			<button class="btn">Click Me</button>
+		</div>
+	</div>
+	
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//console.log("hi");
+
+			var progressbar = $(".progress-bar");
+			var setwidth = 0;
+
+			$(".btn").click(function(){
+
+
+				if(setwidth === 0){
+
+					function liquid(){
+						        
+
+					if( setwidth >= 100){
+
+                       $(".btn").attr("disabled",true);
+
+                       clearInterval(setintv);
+
+					}else{
+                       setwidth++;
+                      progressbar.css({
+                      	"width":`${setwidth}%`
+                      });
+                      progressbar.text(`${setwidth}%`)
+					}
+				} // funtion close
+
+				var setintv = setInterval(liquid,500);
+
+				}
+			})
+
+
+
+		})
+	</script>
+</body>
+</html>

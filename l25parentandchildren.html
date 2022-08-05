@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>parent and children Method</title>
+	<style type="text/css">
+		
+		body{
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			flex-direction: column;
+		}
+
+		.container{
+			width: 900px;
+			background-color: #f4f4f4;
+			padding: 20px;
+
+			display: flex;
+		}
+
+		.box{
+			width: 150px;
+			height: 300px;
+
+			margin: 0 10px;
+		}
+
+		.square1{
+			background-color: green;
+		}
+
+		.square2{
+			background-color: orange;
+		}
+		.square3{
+			background-color: blue;
+		}
+		.square4{
+			background-color: violet;
+		}
+		.square5{
+			background-color:brown;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div>
+		<h1>parent & children Method</h1>
+		<p>This is awesome jQuery 3.6</p>
+	</div>
+
+	<div class="container">
+		<div class="box square1">Box 1</div>
+		<hr/>
+		<div class="box square2">Box 2</div>
+		<hr/>
+		<div class="box square3">Box 3</div>
+		<hr/>
+		<div class="box square4">Box 4</div>
+		<hr/>
+		<div class="box square5">Box 5</div>
+	</div>
+
+	<div>
+		<p>Hay guys!!! what's your plan after class</p>
+	</div>
+	
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// console.log('hi');
+
+			// parent();
+
+			// $(".box").click(function(){                             // mi ba shi bee thar ko khaw dar
+   //                 $(this).parent().css({
+   //                 	"background":"darkblue",
+   //                 	"box-shadow":"5px 5px 10px rgba(0,0,0,0.5)"
+   //                 });
+			// });
+
+
+			// children();
+ 
+			// $(".container").click(function(){                    // arr lone ko kaw dar 
+			// 	$(this).children().css("background-color","red");
+			// })
+
+			// $(".container").click(function(){                       // ta yout dal ko daw dar
+			// 	$(this).children(".square1").css("background-color","red");
+			// })
+
+			// $(".container").click(function(){                       // ta yout dal ko daw dar
+			// 	$(this).children(".square3,.square4").css("background-color","red");
+			// });
+
+
+			// siblings();   maung na ma ka a myar naw
+
+			// $(".square1").click(function(){
+			// 	$(this).siblings().css("background-color","red")
+			// })
+
+			// $(".square1").click(function(){
+			// 	$(this).siblings(".square4").css("background-color","red")
+			// })
+
+			// $(".square1").click(function(){
+			// 	$(this).siblings(".square3,.square5").css("background-color","red")
+			// })
+
+            // formula
+
+			// $(".square1").click(function(){
+			// 	$(".box:nth-of-type(1n)").css("background-color","silver")    
+			// })
+
+			// $(".square1").click(function(){
+			// 	$(".box:nth-of-type(2n+1)").css("background-color","silver")    
+			// })
+
+			// $(".square1").click(function(){
+			// 	$(".box:nth-of-type(3n+1)").css("background-color","silver")    
+			// })
+
+
+			// :nth-of-type()
+			// n
+			// odd
+			// even
+			// formula
+
+			// $(".square1").click(function(){
+			// 	$(".box:nth-of-type(1)").css("background-color","silver")   // hr tag twe ka a lote ma lote bu ..a myo a sar tu ma a loke loke dal
+			// })
+
+			// $(".square1").click(function(){
+			// 	$(".box:nth-of-type(odd)").css("background-color","silver")    
+			// })
+
+			// $(".square1").click(function(){
+			// 	$(".box:nth-of-type(even)").css("background-color","silver")    
+			// })
+
+			// :nth-child();
+			// n
+			// odd
+			// even	
+			// formula
+
+			// $(".square1").click(function(){
+			// 	$(".box:nth-child(7)").css("background-color","grey");   // nth-child ka hr tag twar pr yae twint dal
+			// })
+
+
+			// $(".square1").click(function(){
+			// 	$(".box:nth-child(odd)").css("background-color","grey");   
+			// })
+
+			// $(".square1").click(function(){
+			// 	$(".box:nth-child(even)").css("background-color","grey");   //hr tag twe ka effect win twar lot naw
+			// })
+
+			 // $(".square1").click(function(){
+			 // 	$(".box:nth-child(3n+1)").css("background-color","grey");  
+			 // })
+
+
+			 //next();
+
+			 // $(".container").click(function(){
+			 // 	$(this).next().css({
+			 // 		"background-color":"red",
+			 // 		"color":"white"
+			 // 	});
+			 // })
+
+			 //prev();
+
+			 $(".container").click(function(){
+			 	$(this).prev().css({
+			 		"background-color":"green",
+			 		"color":"#fff",
+			 		"padding":"20px"
+			 	})
+			 })
+
+
+		})
+
+	</script>
+</body>
+</html>

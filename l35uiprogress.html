@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UI progress Method</title>
+	<link href="./libs/jquery-ui-1.13.1/jquery-ui-1.13.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container{
+			width: 700px;
+		}
+
+		#progress2{
+			position: relative;
+		}
+
+		.progresslabel{
+			position: absolute;
+			top: 50%;
+			left:50%;
+
+			transform: translate(-50%,-50%);
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		
+		<h1>HTML</h1>
+         <div id="progress1"></div>
+
+         <h1>CSS</h1>
+         <div id="progress2"><span class="progresslabel">20%</span></div>
+
+         <h1>jQuery</h1>
+         <div id="progress3"></div>
+
+         <h1>Javascript</h1>
+         <div id="progress4"></div>
+
+         <h1>Bootstrap</h1>
+         <div id="progress5"></div>
+
+	</div>
+	
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script src="./libs/jquery-ui-1.13.1/jquery-ui-1.13.1/jquery-ui.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// console.log("hi");
+
+			$("#progress1").progressbar({
+				value:30
+			});
+
+			$("#progress2").progressbar({
+				value:20
+			});
+
+
+
+			$("#progress3").progressbar({
+				value:80
+			}).css({
+				"background-color":"#f4f4f4"        //background mar win dar naw
+			});
+
+
+
+			$("#progress3 > div").css("background-color","steelblue")      // > sign is just calling to child by css sir
+
+
+
+			$("#progress4").css({
+				"background-color":"#e2e2e2",
+				"height":"10px"
+			}).progressbar({
+				value:50
+			});
+
+			$("#progress4 > div").css({
+				"background-color":"skyblue"
+
+			})
+
+
+			// $("#progress5").progressbar({
+			// 	value:45
+			// }).css({
+			// 	"background":"radial-gradient(green,grey)"
+			// });
+
+			$("#progress5").progressbar({           //its just using with `` sir nothing change
+				value:45
+			}).css({
+				// "background":`radial-gradient(
+				// green,
+				// grey)`
+
+				"background-image":"url('./dr.jpg')",
+				"background-size":"80px",
+				"background-repeat":"repeat-x",
+				"background-position":"center"
+			});
+
+			$("#progress5 > div").css("background-color","darkblue")
+		})
+	</script>
+</body>
+</html>
+
+
+
+<!-- <div id="progress3">
+	<div></div>
+</div> -->

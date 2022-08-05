@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UI draggable Method</title>
+	<link href="./libs/jquery-ui-1.13.1/jquery-ui-1.13.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+
+	<style type="text/css">
+
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container{
+			width: 900px;
+			height: 700px;
+			background: #f4f4f4;
+			box-shadow:20px 10px 5px #777;
+		}
+		
+		.box{
+			width: 250px;
+			height: 150px;
+			background: steelblue;
+			color: #fff;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		
+		<div id="dragme" class="box">
+			<p>Drage Me wherever you want !!!</p>
+		</div>
+
+		<div id="dragmeX" class="box">
+			<p>Drage Me on X !!!</p>
+		</div>
+
+		<div id="dragmeY" class="box">
+			<p>Drage Me on Y !!!</p>
+		</div>
+
+
+		<div id="dragmeoncnt" class="box">
+			<p>Drage Me on Container area only !!!</p>
+		</div>
+	</div>
+	
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script src="./libs/jquery-ui-1.13.1/jquery-ui-1.13.1/jquery-ui.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// console.log('hi')
+
+			// $("#dragme").draggable();
+
+			// $("#dragme").draggable({
+			// 	//cursor:"grab"
+			// 	// cursor:"move"
+			// 	cursor : "crosshair"
+			// });
+
+			$("#dragmeX").draggable({
+				axis:"x"
+			});
+
+			$("#dragmeY").draggable({
+				axis:"y"             
+			})
+
+			// $("#dragmeoncnt").draggable({
+			// 	containment:".container"
+			// })
+
+			// $("#dragme,#dragmeoncnt").draggable({
+			// 	cancel:"#dragme" //#dragmeoncnt
+			// });
+
+
+			$("#dragme").draggable({
+				start:function(){
+					$(this).css("background-color","violet")
+				},
+
+				drag:function(){
+					$(this).text("Element is moving")    //.text is for changing text sir
+				},
+
+				stop:function(){
+					$(this).text("Element is stoping")
+				},
+
+				// stop:function(){
+				// 	$(this).css("background-color","green")
+				// },
+
+				// revert : true,          // starting point ko pyan yout twar dal sir
+				// revertDuration:1000     // starting point ye kyar chain
+
+				revert:function(){
+					$(this).css("background-color","orange");
+					return true
+				},
+
+				revertDuration:1000,
+                       
+                      // x , y
+				// grid : [0,100]    // x mar 0 px sar bal shwa pee y mar 100px sar bal shwa mal pyaw dar
+
+				// grid : [100,0]
+
+				grid :[100,200]
+			})
+
+
+
+
+
+
+
+
+
+		})
+	</script>
+</body>
+</html>

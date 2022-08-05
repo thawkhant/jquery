@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UI tooltip Method</title>
+	<link href="./libs/jquery-ui-1.13.1/jquery-ui-1.13.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		body{
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container{
+			width: 900px;
+			background: #f4f4f4;
+			padding: 20px;
+		}
+	</style>
+</head>
+<body>
+
+
+	<div class="container">
+		<h3>How to use jQuery Tooltip !</h3>
+		<p><a href="#" id="ttone" title="This is Tooltip of jQuery UI!">it is used </a>in conjuction with a cursor, when a user hovers the pointer over an item without clicking.</p> 
+
+		<form action="" method="">
+			<div class="form-group">
+				<label for="dob">Date of Birth</label>
+				<input type="text" name="dob" id="dob" class="form-control" title="Your age must over 18" autocomplete="off" readonly>
+			</div>
+		</form>
+
+	</div>
+
+
+	 <!-- title is Default by HTML -->
+	
+
+
+	<script src="./libs/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script src="./libs/jquery-ui-1.13.1/jquery-ui-1.13.1/jquery-ui.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// console.log("hi")
+
+
+			// $("#ttone").tooltip();
+
+			// $("#ttone").tooltip({
+				// show:3000,
+				// hide:5000
+
+				//show:"bounce",
+				// hide:"explode"
+
+				// hide:{
+				// 	effect:"explode",
+				// 	duration:3000
+				// },
+
+				// show:{
+				// 	effect:"shake",
+				// 	duration:2000
+				// }
+
+				// track:true ,    // de har ka lite yway nay dal
+
+				// content:"This  is jQuery UI. Thanks for using our libs."
+
+			//	content:function(){
+					// return "<img src='logo2.png' width='150px'/>"
+
+					//return "<img src='logo2.png' width='150px' /><h5>This is our compnay logo</h5> <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry</small>"
+			//	}
+			//});
+
+			// $("#dob").tooltip();
+			// $("#dob").datepicker();
+
+			//$("#dob").tooltip().datepicker();
+
+			$(document).tooltip();                 // tooptip pay pot a myar gyi lo lar yin
+			
+		})
+	</script>
+</body>
+</html>
